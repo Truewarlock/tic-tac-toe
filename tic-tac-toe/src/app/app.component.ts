@@ -14,5 +14,14 @@ export class AppComponent {
     [null,null,null]
   ]
 
+  isPlayerXTurn:boolean=true;
+  changeGrid(x:number,y:number){
+    if(this.isPlayerXTurn){
+      this.grid[x][y]=true
+    }else{
+      this.grid[x][y]=false
+    }
+    this.isPlayerXTurn=!this.isPlayerXTurn;
+  }
 
 }
