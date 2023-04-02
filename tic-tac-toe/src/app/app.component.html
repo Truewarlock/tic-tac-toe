@@ -9,8 +9,15 @@
                 border:1px solid black;
                "
           (click)="changeGrid(indexLine,indexColumn)">
-               <div *ngIf="boardState.grid[indexLine][indexColumn]">X</div>
-               <div *ngIf="boardState.grid[indexLine][indexColumn]===false">0</div>
+              <div
+                style="    display: flex;
+                justify-content: center;">
+                  <div style="margin-top:30px;">
+                    {{indexLine}}{{indexColumn}}
+                    <i *ngIf="boardState.grid[indexLine][indexColumn]" class="fa-solid fa-x" style="font-size: 50px;"></i>
+                    <i *ngIf="boardState.grid[indexLine][indexColumn]===false" class="fa-solid fa-o" style="font-size: 50px;"></i>
+                  </div>
+              </div>
 
     </div>
   </div>

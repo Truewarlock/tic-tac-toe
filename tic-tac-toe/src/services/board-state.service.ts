@@ -23,5 +23,32 @@ export class BoardStateService {
     const numCols = 3; // Change this to the number of columns you want
     this.grid = Array(numRows).fill(null).map(() => Array(numCols).fill(null));
   }
-}
 
+  checkWin(x: number, y: number) {
+
+    // check rows and columns
+    for (let i = 0; i < 3; i++) {
+      if ((this.grid[i][0] == this.grid[i][1] && this.grid[i][1] == this.grid[i][2] && this.grid[i][1] !== null) ||
+        (this.grid[0][i] == this.grid[1][i] && this.grid[1][i] == this.grid[2][i] && this.grid[1][i] !== null)) {
+        this.gameWon(this.grid[i][i]);
+        return;
+      }
+    }
+
+    // check diagonals
+    if ((this.grid[0][0] == this.grid[1][1] && this.grid[1][1] == this.grid[2][2] && this.grid[1][1] !== null) ||
+      (this.grid[0][2] == this.grid[1][1] && this.grid[1][1] == this.grid[2][0] && this.grid[1][1] !== null)) {
+      this.gameWon(this.grid[1][1]);
+    }
+
+  }
+
+  gameWon(winner: boolean) {
+    if (winner) {
+      alert("X WON");
+    } else {
+      alert("O WON");
+    }
+  }
+
+}

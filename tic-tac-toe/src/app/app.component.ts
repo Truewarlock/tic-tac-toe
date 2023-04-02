@@ -12,6 +12,7 @@ export class AppComponent {
   constructor(public boardState: BoardStateService) {}
 
   changeGrid(x: number, y: number) {
+    console.log("Before:", this.boardState.isPlayerXTurn);
     if (this.boardState.isPlayerXTurn) {
       this.boardState.grid[x][y] = true
     } else {
@@ -19,6 +20,7 @@ export class AppComponent {
     }
     this.boardState.isPlayerXTurn = !this.boardState.isPlayerXTurn;
     console.log(this.boardState.grid,x,y)
+    this.boardState.checkWin(x,y);
   }
 
 
