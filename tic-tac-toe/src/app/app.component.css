@@ -1,0 +1,50 @@
+
+.line{
+  background-color: black;
+  height: 300px;
+  width: 10px;
+  position: absolute;
+  border-radius: 10px;
+  border:1px white solid;
+
+}
+
+.col1{
+  margin-left: 50px;
+}
+
+.col2{
+  margin-left: 150px;
+}
+
+.col3{
+  margin-left: 250px;;
+}
+
+.row1{
+  rotate:90deg;
+  margin-left: 150px;
+  margin-top: -100px;
+}
+
+.row2{
+  rotate:90deg;
+  margin-left: 150px;
+  margin-top: 0px;
+}
+
+.row3{
+  rotate:90deg;
+  margin-left: 150px;
+  margin-top: 100px;
+}
+
+.diag{
+  rotate: -45deg;
+  margin-left: 150px;
+}
+
+.antidiag{
+  rotate: 45deg;
+  margin-left: 150px;
+}

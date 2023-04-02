@@ -43,11 +43,13 @@ export class BoardStateService {
 
   }
 
+  gameOver:boolean=false
   gameWon(winner: boolean) {
+    this.gameOver=true;
     if (winner) {
-      alert("X WON");
+      console.log("X WON");
     } else {
-      alert("O WON");
+      console.log("O WON");
     }
   }
 
