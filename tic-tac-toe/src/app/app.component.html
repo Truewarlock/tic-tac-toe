@@ -1,25 +1,21 @@
-
 <div class="line antidiag" *ngIf="boardState.gameOver"></div>
-<div *ngFor="let line of boardState.grid;let indexLine = index;" >
+<div *ngFor="let line of boardState.grid;let indexLine = index;">
 
   <div style="display: flex;">
 
-    <div *ngFor="let row of line;let indexColumn=index"
-         style="
+    <div *ngFor="let row of line;let indexColumn=index" style="
                 width:100px;
                 height:100px;
                 border:1px solid black;
-               "
-          (click)="changeGrid(indexLine,indexColumn)">
-              <div
-                style="    display: flex;
+               " (click)="changeGrid(indexLine,indexColumn)">
+      <div style="    display: flex;
                 justify-content: center;">
-                  <div style="margin-top:30px;">
-                    {{indexLine}}{{indexColumn}}
-                    <i *ngIf="boardState.grid[indexLine][indexColumn]" class="fa-solid fa-x" style="font-size: 50px;"></i>
-                    <i *ngIf="boardState.grid[indexLine][indexColumn]===false" class="fa-solid fa-o" style="font-size: 50px;"></i>
-                  </div>
-              </div>
+        <div style="margin-top:30px;">
+          {{indexLine}}{{indexColumn}}
+          <i *ngIf="boardState.grid[indexLine][indexColumn]" class="fa-solid fa-x" style="font-size: 50px;"></i>
+          <i *ngIf="boardState.grid[indexLine][indexColumn]===false" class="fa-solid fa-o" style="font-size: 50px;"></i>
+        </div>
+      </div>
 
     </div>
   </div>
