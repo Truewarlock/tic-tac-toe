@@ -1,6 +1,4 @@
-<div class="line"
-    *ngIf="boardState.gameOver"
-    [ngClass]="{
+<div class="line" *ngIf="boardState.gameOver" [ngClass]="{
     'col1':(boardState.wonBy[0]==='col'&&boardState.wonBy[1]==0),
     'col2':(boardState.wonBy[0]==='col'&&boardState.wonBy[1]==1),
     'col3':(boardState.wonBy[0]==='col'&&boardState.wonBy[1]==2),

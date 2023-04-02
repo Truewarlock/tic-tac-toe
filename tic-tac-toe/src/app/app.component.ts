@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'tic-tac-toe';
 
-  constructor(public boardState: BoardStateService) {}
+  constructor(public boardState: BoardStateService) { }
 
   changeGrid(x: number, y: number) {
     console.log("Before:", this.boardState.isPlayerXTurn);
@@ -19,8 +19,8 @@ export class AppComponent {
       this.boardState.grid[x][y] = false
     }
     this.boardState.isPlayerXTurn = !this.boardState.isPlayerXTurn;
-    console.log(this.boardState.grid,x,y)
-    this.boardState.checkWin(x,y);
+    console.log(this.boardState.grid, x, y)
+    this.boardState.checkWin(x, y);
   }
 
 
