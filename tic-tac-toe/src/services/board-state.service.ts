@@ -24,12 +24,22 @@ export class BoardStateService {
     this.grid = Array(numRows).fill(null).map(() => Array(numCols).fill(null));
   }
 
+  wonBy:[string,number]=["",0]
   checkWin(x: number, y: number) {
 
-    // check rows and columns
+    // check rows
     for (let i = 0; i < 3; i++) {
-      if ((this.grid[i][0] == this.grid[i][1] && this.grid[i][1] == this.grid[i][2] && this.grid[i][1] !== null) ||
-        (this.grid[0][i] == this.grid[1][i] && this.grid[1][i] == this.grid[2][i] && this.grid[1][i] !== null)) {
+      if (this.grid[i][0] == this.grid[i][1] && this.grid[i][1] == this.grid[i][2] && this.grid[i][1] !== null)  {
+        this.wonBy=["row",i]
+        this.gameWon(this.grid[i][i]);
+        return;
+      }
+    }
+
+    //check columns
+    for (let i = 0; i < 3; i++) {
+      if(this.grid[0][i] == this.grid[1][i] && this.grid[1][i] == this.grid[2][i] && this.grid[1][i] !== null) {
+        this.wonBy=["col",i]
         this.gameWon(this.grid[i][i]);
         return;
       }
@@ -38,7 +48,13 @@ export class BoardStateService {
     // check diagonals
     if ((this.grid[0][0] == this.grid[1][1] && this.grid[1][1] == this.grid[2][2] && this.grid[1][1] !== null) ||
       (this.grid[0][2] == this.grid[1][1] && this.grid[1][1] == this.grid[2][0] && this.grid[1][1] !== null)) {
-      this.gameWon(this.grid[1][1]);
+        if(this.grid[0][0]!==null){
+          this.wonBy=["diag",0]
+        }else{
+          this.wonBy=["antidiag",0]
+        }
+
+        this.gameWon(this.grid[1][1]);
     }
 
   }
@@ -46,6 +62,7 @@ export class BoardStateService {
   gameOver: boolean = false
   gameWon(winner: boolean) {
     this.gameOver = true;
+    console.log(this.wonBy[0],this.wonBy[1])
     if (winner) {
       console.log("X WON");
     } else {
