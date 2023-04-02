@@ -1,5 +1,5 @@
 
-<div *ngFor="let line of grid;let indexLine = index;" >
+<div *ngFor="let line of boardState.grid;let indexLine = index;" >
 
   <div style="display: flex;">
     <div *ngFor="let row of line;let indexColumn=index"
@@ -9,9 +9,11 @@
                 border:1px solid black;
                "
           (click)="changeGrid(indexLine,indexColumn)">
-               <div *ngIf="grid[indexLine][indexColumn]">X</div>
-               <div *ngIf="grid[indexLine][indexColumn]===false">0</div>
+               <div *ngIf="boardState.grid[indexLine][indexColumn]">X</div>
+               <div *ngIf="boardState.grid[indexLine][indexColumn]===false">0</div>
 
     </div>
   </div>
 </div>
+
+<div (click)="boardState.resetBoardState()">RESET</div>

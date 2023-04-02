@@ -1,3 +1,4 @@
+import { BoardStateService } from './../services/board-state.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,20 +9,20 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'tic-tac-toe';
 
-  grid:any=[
-    [null,null,null],
-    [null,null,null],
-    [null,null,null]
-  ]
+  constructor(public boardState: BoardStateService){
 
-  isPlayerXTurn:boolean=true;
+  }
+
+
+
+
   changeGrid(x:number,y:number){
-    if(this.isPlayerXTurn){
-      this.grid[x][y]=true
+    if(this.boardState.isPlayerXTurn){
+      this.boardState.grid[x][y]=true
     }else{
-      this.grid[x][y]=false
+      this.boardState.grid[x][y]=false
     }
-    this.isPlayerXTurn=!this.isPlayerXTurn;
+    this.boardState.isPlayerXTurn=!this.boardState.isPlayerXTurn;
   }
 
 }
