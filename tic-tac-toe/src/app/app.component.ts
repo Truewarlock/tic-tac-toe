@@ -9,20 +9,18 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'tic-tac-toe';
 
-  constructor(public boardState: BoardStateService){
+  constructor(public boardState: BoardStateService) {}
 
-  }
-
-
-
-
-  changeGrid(x:number,y:number){
-    if(this.boardState.isPlayerXTurn){
-      this.boardState.grid[x][y]=true
-    }else{
-      this.boardState.grid[x][y]=false
+  changeGrid(x: number, y: number) {
+    if (this.boardState.isPlayerXTurn) {
+      this.boardState.grid[x][y] = true
+    } else {
+      this.boardState.grid[x][y] = false
     }
-    this.boardState.isPlayerXTurn=!this.boardState.isPlayerXTurn;
+    this.boardState.isPlayerXTurn = !this.boardState.isPlayerXTurn;
+    console.log(this.boardState.grid,x,y)
   }
+
+
 
 }
