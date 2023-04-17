@@ -1,4 +1,4 @@
-#License type: MIT
+# License type: MIT
 
 Copyright 2023 Truewarlock (https://github.com/Truewarlock)
 
